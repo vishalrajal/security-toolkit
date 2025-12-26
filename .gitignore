@@ -10,3 +10,4 @@ vendor/
 .vscode
 dist
 /subfinder
+node_modules/
