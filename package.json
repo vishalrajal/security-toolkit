@@ -1,0 +1,15 @@
+{
+  "name": "subfinder-desktop",
+  "version": "1.0.0",
+  "description": "Modern Electron Desktop UI for Subfinder",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "vishalraja",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.1.0"
+  }
+}

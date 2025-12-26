@@ -1,0 +1,105 @@
+
+/* Additional Styles for URL Discovery */
+
+/* Section Headers */
+.section-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin: 20px 0 10px 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--border);
+}
+.section-title:first-child {
+  margin-top: 0;
+}
+
+/* Raw Output Block */
+.raw-output {
+  white-space: pre-wrap;
+  margin-bottom: 20px;
+}
+
+/* Table Styles */
+.table-container {
+  overflow-x: auto;
+}
+
+.url-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.url-table th {
+  text-align: left;
+  padding: 10px;
+  color: var(--text-muted);
+  font-weight: 500;
+  border-bottom: 1px solid var(--border);
+}
+
+.url-table td {
+  padding: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  vertical-align: top;
+}
+
+.url-table tr:hover {
+  background: rgba(255,255,255,0.02);
+}
+
+.col-url a {
+  color: var(--text-main);
+  text-decoration: none;
+  word-break: break-all;
+  display: block;
+}
+.col-url a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.redirect-arrow {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+/* Status Badges */
+.status-badge-small {
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.status-ok {
+  background: rgba(34, 197, 94, 0.1);
+  color: var(--success);
+}
+.status-redirect {
+  background: rgba(234, 179, 8, 0.1);
+  color: #fbbf24;
+}
+.status-error {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--danger);
+}
+
+/* Tags */
+.tags-gap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.tag {
+  background: rgba(255,255,255,0.05);
+  color: var(--text-muted);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+}
+.tag-class {
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--primary);
+}

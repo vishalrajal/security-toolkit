@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Security Toolkit</title>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="brand">
+        <div class="logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>Security Toolkit</h1>
+          <span class="version">developed by vishalraja</span>
+        </div>
+      </div>
+      <div class="status-badge" id="app-status">
+        <span class="dot"></span>
+        <span class="text">Ready</span>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <!-- Sidebar / Input Section -->
+      <aside class="control-panel">
+        <form id="scan-form">
+          <div class="control-group">
+            <label class="group-label">Target</label>
+            <div class="input-wrapper">
+              <input id="domain" name="domain" type="text" placeholder="domain.com" autocomplete="off"
+                spellcheck="false" />
+              <div class="input-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="group-label">Seed URL (Optional)</label>
+            <div class="input-wrapper">
+              <input id="seed-url" name="url" type="text" placeholder="https://example.com/path" autocomplete="off"
+                spellcheck="false" />
+              <div class="input-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="group-label">Options</label>
+            <div class="options-list">
+              <label class="option-item">
+                <input type="checkbox" id="resolve-dns" />
+                <span class="checkmark"></span>
+                <div class="option-content">
+                  <span class="option-title">DNS Resolution</span>
+                  <span class="option-desc">Resolve and filter active subdomains</span>
+                </div>
+              </label>
+
+              <label class="option-item">
+                <input type="checkbox" id="port-scan" />
+                <span class="checkmark"></span>
+                <div class="option-content">
+                  <span class="option-title">Port Scan</span>
+                  <span class="option-desc">Check ports 80, 443</span>
+                </div>
+              </label>
+
+              <label class="option-item">
+                <input type="checkbox" id="url-discovery" />
+                <span class="checkmark"></span>
+                <div class="option-content">
+                  <span class="option-title">URL Discovery</span>
+                  <span class="option-desc">Crawl for endpoints & params</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" id="scan-button" class="action-btn">
+            <span class="btn-text">Start Scan</span>
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </button>
+        </form>
+
+
+      </aside>
+
+      <!-- Main Output Section -->
+      <section class="results-panel">
+        <div class="panel-header">
+          <h2>Scan Results</h2>
+          <div class="actions">
+            <button id="copy-button" class="icon-btn" title="Copy to Clipboard">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span class="btn-label">Copy</span>
+            </button>
+            <button id="clear-button" class="icon-btn" title="Clear Output">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="3 6 5 6 21 6"></polyline>
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                <line x1="10" y1="11" x2="10" y2="17"></line>
+                <line x1="14" y1="11" x2="14" y2="17"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="output-container">
+          <pre id="output" class="output-content" spellcheck="false"></pre>
+          <div id="empty-state" class="empty-state">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <p>Ready to scan. Enter a domain to begin.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
